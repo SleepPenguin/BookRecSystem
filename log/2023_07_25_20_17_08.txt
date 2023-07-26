@@ -1,0 +1,88 @@
+Start: 2023-07-25 20:17:08
+datapath: .//data/processed/ZJULibrary2013_2019.csv
+neg_ratio: 3
+min_item: 5
+seq_max_len: 20
+load: False
+batch_size: 1024
+user_params: {'dims': [512, 512, 256, 128, 64]}
+item_params: {'dims': [1024, 512, 256, 128, 64]}
+temperature: 0.02
+learning_rate: 0.0001
+weight_decay: 0.0001
+optimizer_fn: <class 'torch.optim.adam.Adam'>
+epoch: 5
+evaluation{'tn': 0.6883668978586406, 'fp': 0.06202415354804947, 'fn': 0.07842814048572215, 'tp': 0.17118080810758785}
+auc: 0.8595477059662284
+recall: 0.685795958327176
+topk_score: {'HR': 0.24606367527409673, 'n_hit': 19144, 'n_total': 77801}
+precision: 0.7340358751044175
+model: DSSM(
+  (embedding): EmbeddingLayer(
+    (embed_dict): ModuleDict(
+      (PATRON_ID): Embedding(118359, 111)
+      (STUDENT_GRADE): Embedding(23, 13)
+      (PATRON_DEPT): Embedding(213, 22)
+      (PATRON_TYPE): Embedding(37, 14)
+      (hist_ITEM_ID): Embedding(701193, 173)
+      (ITEM_ID): Embedding(701193, 173)
+      (SUBLIBRARY): Embedding(78, 17)
+      (CALLNO1): Embedding(166, 21)
+      (CALLNO2): Embedding(340, 25)
+      (PUBLISH_YEAR): Embedding(145, 20)
+      (AUTHOR): Embedding(232369, 131)
+      (TITLE): Embedding(390571, 149)
+      (PRESS): Embedding(24989, 75)
+    )
+  )
+  (user_mlp): MLP(
+    (mlp): Sequential(
+      (0): Linear(in_features=333, out_features=512, bias=True)
+      (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+      (3): Dropout(p=0.2, inplace=False)
+      (4): Linear(in_features=512, out_features=512, bias=True)
+      (5): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (6): PReLU(num_parameters=1)
+      (7): Dropout(p=0.2, inplace=False)
+      (8): Linear(in_features=512, out_features=256, bias=True)
+      (9): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): PReLU(num_parameters=1)
+      (11): Dropout(p=0.2, inplace=False)
+      (12): Linear(in_features=256, out_features=128, bias=True)
+      (13): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (14): PReLU(num_parameters=1)
+      (15): Dropout(p=0.2, inplace=False)
+      (16): Linear(in_features=128, out_features=64, bias=True)
+      (17): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (18): PReLU(num_parameters=1)
+      (19): Dropout(p=0.2, inplace=False)
+    )
+  )
+  (item_mlp): MLP(
+    (mlp): Sequential(
+      (0): Linear(in_features=611, out_features=1024, bias=True)
+      (1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+      (3): Dropout(p=0.2, inplace=False)
+      (4): Linear(in_features=1024, out_features=512, bias=True)
+      (5): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (6): PReLU(num_parameters=1)
+      (7): Dropout(p=0.2, inplace=False)
+      (8): Linear(in_features=512, out_features=256, bias=True)
+      (9): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): PReLU(num_parameters=1)
+      (11): Dropout(p=0.2, inplace=False)
+      (12): Linear(in_features=256, out_features=128, bias=True)
+      (13): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (14): PReLU(num_parameters=1)
+      (15): Dropout(p=0.2, inplace=False)
+      (16): Linear(in_features=128, out_features=64, bias=True)
+      (17): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (18): PReLU(num_parameters=1)
+      (19): Dropout(p=0.2, inplace=False)
+    )
+  )
+)
+Finish:2023-07-25 22:38:29
+
